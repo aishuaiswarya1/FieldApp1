@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "105546992998",
+    "firebase_url": "https://field-report-generator-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "field-report-generator",
+    "storage_bucket": "field-report-generator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105546992998:android:b0b7f95e3b4409123e0ca7",
+        "android_client_info": {
+          "package_name": "com.example.fieldaware"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105546992998-qd0gl6mkpjqodr1lrkbv7462r69rmuh5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa3bviQ3Etk8_Uw8HyqGmSb4gp_8IOYYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105546992998-qd0gl6mkpjqodr1lrkbv7462r69rmuh5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

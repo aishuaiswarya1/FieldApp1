@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollview"
+    android:fillViewport="true">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".SiteDetails">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/siteDetailsText"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Site Details"
+        android:textStyle="bold"
+        android:textColor="#FFFF9800"
+        android:layout_gravity="center"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sitename"
+       android:hint="Site Name"
+        android:textColorHint="#494745"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/landmark"
+        android:hint="Landmark"
+        android:textColorHint="#494745"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:id="@+id/pincode"
+        android:hint="Pincode"
+        android:inputType="number"
+        android:textColorHint="#494745"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/textView_indian_states"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pincode"
+        android:layout_marginTop="20dp"
+        android:padding="6dp"
+        android:text="State*"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#494745"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+
+    <Spinner
+        android:id="@+id/spinner_indian_states"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/textView_indian_states"/>
+
+    <TextView
+        android:id="@+id/textView_indian_districts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_indian_states"
+        android:layout_marginTop="20dp"
+        android:padding="6dp"
+        android:text="District*"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#494745"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <Spinner
+        android:id="@+id/spinner_indian_districts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:layout_below="@id/textView_indian_districts"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pick_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#FFFF9800"
+        android:text="Pick Current Location"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/share_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.162" />
+
+    <TextView
+        android:id="@+id/textlat"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+
+        android:text="Lattitude"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="#494745"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632" />
+    <TextView
+        android:id="@+id/Longitude"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+
+        android:text="Longitude"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="#494745"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.728" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addsiteimg"
+        android:layout_marginLeft="20dp"
+        android:text="Add site images"
+        android:textStyle="bold"
+android:textColor="#494745"
+
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/gallery"
+            android:layout_width="106dp"
+            android:layout_height="107dp"
+            android:layout_marginLeft="20dp"
+
+            android:layout_marginTop="20dp"
+            android:paddingTop="40dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/camera" />
+
+        <ImageView
+            android:id="@+id/imgview"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="20dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+           android:layout_marginLeft="40dp"
+
+            android:backgroundTint="#FFFF7700"
+            android:text="Previous"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <!--click here to view next image-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:backgroundTint="#FFFF7700"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/b1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#FFFF7700"
+        android:text="SAVE"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>
+
+</ScrollView>
+
+
