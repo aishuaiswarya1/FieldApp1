@@ -12,24 +12,24 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".SiteDetails">
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/siteDetailsText"
-        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:gravity="center"
         android:layout_marginTop="20dp"
         android:text="Site Details"
-        android:textStyle="bold"
-        android:textColor="#FFFF9800"
-        android:layout_gravity="center"
-        />
+        android:textColor="#008000"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sitename"
        android:hint="Site Name"
-        android:textColorHint="#494745"
+        android:textColorHint="#309730"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/landmark"
         android:hint="Landmark"
-        android:textColorHint="#494745"
+        android:textColorHint="#309730"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
@@ -50,24 +50,26 @@
 android:id="@+id/pincode"
         android:hint="Pincode"
         android:inputType="number"
-        android:textColorHint="#494745"
+        android:textColorHint="#309730"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"/>
+
+
     <TextView
         android:id="@+id/textView_indian_states"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/pincode"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:padding="6dp"
         android:text="State*"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="#494745"
-        android:focusable="true"
-        android:focusableInTouchMode="true"/>
-
+        android:textColor="#309730"
+     />
 
     <Spinner
         android:id="@+id/spinner_indian_states"
@@ -87,9 +89,10 @@ android:id="@+id/pincode"
         android:layout_marginTop="20dp"
         android:padding="6dp"
         android:text="District*"
+
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textColor="#494745"
+        android:textColor="#309730"
         android:focusable="true"
         android:focusableInTouchMode="true" />
 
@@ -103,65 +106,38 @@ android:id="@+id/pincode"
 
         android:layout_below="@id/textView_indian_districts"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/pick_location"
-        android:layout_width="match_parent"
+  <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:backgroundTint="#FFFF9800"
-        android:text="Pick Current Location"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/share_date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.162" />
+      android:layout_marginLeft="20dp"
+      android:layout_marginTop="10dp"
+      android:fontFamily="sans-serif-black"
+        android:text="Latitude:" />
 
     <TextView
-        android:id="@+id/textlat"
-        android:layout_width="match_parent"
-
-        android:layout_height="wrap_content"
+        android:id="@+id/latTextView"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Latitude will be here! "
+        android:layout_marginTop="5dp"
+        android:textColor="#309730" />
 
-        android:text="Lattitude"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textColor="#494745"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
     <TextView
-        android:id="@+id/Longitude"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginLeft="20dp"
+        android:text="Longitude:" />
 
+    <TextView
+        android:id="@+id/lonTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-
-        android:text="Longitude"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textColor="#494745"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.728" />
-
+        android:text="Longitude will be here! "
+        android:layout_marginTop="5dp"
+        android:textColor="#309730" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -213,7 +189,7 @@ android:textColor="#494745"
             android:layout_gravity="center"
            android:layout_marginLeft="40dp"
 
-            android:backgroundTint="#FFFF7700"
+            android:backgroundTint="#008000"
             android:text="Previous"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -227,7 +203,7 @@ android:textColor="#494745"
             android:layout_gravity="right"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:backgroundTint="#FFFF7700"
+            android:backgroundTint="#008000"
             android:text="Next"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -236,11 +212,11 @@ android:textColor="#494745"
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/b1"
+        android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:backgroundTint="#FFFF7700"
+        android:backgroundTint="#008000"
         android:text="SAVE"
         android:textColor="@color/white"
         android:textSize="20dp"

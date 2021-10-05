@@ -21,9 +21,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="The Best Product"
-            android:textColor="@color/black"
+            android:textColor="#008000"
             android:textSize="30sp"
             android:textStyle="bold"
+            android:layout_marginLeft="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.157"
@@ -36,8 +37,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="in Every Category"
-            android:textColor="@color/black"
+            android:textColor="#008000"
             android:textSize="30sp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/Welcome_text"
             app:layout_constraintHorizontal_bias="0.0"
@@ -62,336 +64,216 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="0.021" />
 
+
     <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bestbrand"
-        app:layout_constraintVertical_bias="0.02">
+        android:layout_width="match_parent"
+        app:layout_constraintVertical_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent" android:id="@+id/radioGroup" app:layout_constraintTop_toBottomOf="@+id/bestbrand"
+        android:orientation="horizontal">
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/envitus_radiobutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Envitus" />
+        <com.google.android.material.radiobutton.MaterialRadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/envitus_radiobutton" android:text="Envitus" android:layout_marginLeft="20dp"/>
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/tims_radiobutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:text="Tims" />
+        <com.google.android.material.radiobutton.MaterialRadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tims_radiobutton" android:text="Tims" android:layout_marginLeft="60dp"/>
 
     </RadioGroup>
 
-    <LinearLayout
-        android:id="@+id/envitus_view"
-        android:layout_width="399dp"
-        android:layout_height="80dp"
-android:visibility="gone"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.0">
+    <LinearLayout android:layout_height="80dp" android:layout_width="399dp" app:layout_constraintVertical_bias="0.0" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="@+id/radioGroup" app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/envitus_view" app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/radioGroup" android:orientation="vertical" android:visibility="gone">
 
-        <TextView
-            android:id="@+id/family_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Family"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.045"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <LinearLayout
-            android:id="@+id/LinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-            app:layout_constraintVertical_bias="0.76">
-
-            <RadioGroup
-                android:id="@+id/Familygrp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/air_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="Air" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/habitat_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Habitat"
-                    tools:layout_editor_absoluteX="121dp"
-                    tools:layout_editor_absoluteY="616dp" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/soil_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Soil" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/water_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Water" />
-
-            </RadioGroup>
-        </LinearLayout>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" app:layout_constraintVertical_bias="0.0" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/family_text" app:layout_constraintHorizontal_bias="0.045" android:textStyle="bold" android:textSize="20sp" android:textColor="@color/black" android:text="Family" app:layout_constraintTop_toBottomOf="@+id/radioGroup" android:layout_marginLeft="20dp" android:layout_marginTop="10dp"/>
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/tims_view"
+    <LinearLayout android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.76"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/name"
-            android:hint="Name"
-            />
-
-    </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/airlayout"
-    android:orientation="horizontal"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/envitus_view"
-    app:layout_constraintVertical_bias="0.0">
-
-    <RadioGroup
-        android:id="@+id/air_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/envitus_view">
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/indoor_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Indoor"
-            />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/ambient_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Ambient" />
-
-    </RadioGroup>
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/LinearLayout" app:layout_constraintHorizontal_bias="1.0" app:layout_constraintTop_toBottomOf="@+id/radioGroup" android:orientation="horizontal" android:visibility="gone">
 
 
-<LinearLayout
-android:id="@+id/habitat_view"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
+    <RadioGroup android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/Familygrp" android:orientation="horizontal">
 
-android:visibility="gone"
-android:layout_marginTop="10dp"
-android:orientation="horizontal"
-app:layout_constraintBottom_toTopOf="@+id/aws_view"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/envitus_view">
+    <com.google.android.material.radiobutton.MaterialRadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/air_button" android:text="Air" android:layout_marginLeft="20dp"/>
 
-<RadioGroup
-    android:id="@+id/awsradiogrp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    <com.google.android.material.radiobutton.MaterialRadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/habitat_button" android:text="Habitat" android:layout_marginLeft="10dp" tools:layout_editor_absoluteY="616dp" tools:layout_editor_absoluteX="121dp"/>
 
-    android:orientation="horizontal"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-    app:layout_constraintVertical_bias="0.33">
+    <com.google.android.material.radiobutton.MaterialRadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/soil_button" android:text="Soil" android:layout_marginLeft="10dp"/>
 
-    <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/aws_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Aws"
+    <com.google.android.material.radiobutton.MaterialRadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/water_button" android:text="Water" android:layout_marginLeft="10dp"/>
 
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="616dp" />
-
-
-    <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/floodt_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Flood"
-        tools:layout_editor_absoluteX="115dp"
-        tools:layout_editor_absoluteY="436dp" />
 </RadioGroup>
 
 </LinearLayout>
 
-    <LinearLayout
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/tims_view" android:orientation="horizontal" android:visibility="gone">
+
+    <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/name" android:hint="Name"/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" app:layout_constraintVertical_bias="0.0" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" android:id="@+id/airlayout" app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/envitus_view" android:orientation="horizontal">
+
+
+    <RadioGroup android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/air_view"
+        app:layout_constraintTop_toBottomOf="@+id/envitus_view"
+        android:orientation="vertical" android:visibility="gone">
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:id="@+id/indoor_button"
+        android:text="Indoor" android:layout_marginLeft="20dp"/>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:id="@+id/ambient_button" android:text="Ambient"
+        android:layout_marginLeft="20dp"/>
+
+</RadioGroup>
+
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/habitat_view"
+        app:layout_constraintTop_toBottomOf="@+id/envitus_view"
+        app:layout_constraintBottom_toTopOf="@+id/aws_view"
+        android:orientation="horizontal" android:visibility="gone" android:layout_marginTop="10dp">
+
+
+    <RadioGroup android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+
+        app:layout_constraintVertical_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/awsradiogrp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" android:orientation="horizontal">
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:id="@+id/aws_button" android:text="Aws" android:layout_marginLeft="20dp"
+        tools:layout_editor_absoluteY="616dp" tools:layout_editor_absoluteX="121dp"/>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:id="@+id/floodt_button"
+
+        android:text="Flood" android:layout_marginLeft="20dp"
+        tools:layout_editor_absoluteY="436dp" tools:layout_editor_absoluteX="115dp"/>
+
+</RadioGroup>
+
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/aws_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/habitat_view">
-        <RadioGroup
-            android:id="@+id/awsgrp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@+id/habitat_view"
-            tools:layout_editor_absoluteY="609dp">
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/agrbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Agriculture"
-                />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/research_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Research" />
-        </RadioGroup>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/flood_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/habitat_view"
-        >
+        android:orientation="horizontal" android:layout_marginTop="20dp">
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/residential_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Residential" />
-    </LinearLayout>
 
-    <LinearLayout
+    <RadioGroup android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="@+id/habitat_view"
+        android:id="@+id/awsgrp"
+        android:orientation="horizontal" android:visibility="gone"
+        tools:layout_editor_absoluteY="609dp">
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/agrbutton"
+        android:text="Agriculture"
+        android:layout_marginLeft="20dp"/>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:id="@+id/research_button" android:text="Research"
+        android:layout_marginLeft="20dp"/>
+
+</RadioGroup>
+
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/flood_view"
+        app:layout_constraintTop_toBottomOf="@+id/habitat_view"
+        android:orientation="horizontal" android:visibility="gone">
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:id="@+id/residential_button"
+        android:text="Residential"
+        android:layout_marginLeft="20dp"/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent" app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/soil_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:visibility="gone"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/envitus_view"
-        app:layout_constraintVertical_bias="0.0">
+        android:orientation="horizontal" android:visibility="gone"
+        android:layout_marginTop="20dp">
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/farm_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Farm" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/water_view"
-        android:layout_width="match_parent"
+    <com.google.android.material.radiobutton.MaterialRadioButton
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/envitus_view"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_width="wrap_content"
+        android:id="@+id/farm_button"
+        android:text="Farm"
+        android:layout_marginLeft="20dp"/>
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/domestic_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Domestic" />
-    </LinearLayout>
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" android:id="@+id/water_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/envitus_view"
+        android:orientation="horizontal" android:visibility="gone"
+        android:layout_marginTop="20dp">
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:id="@+id/domestic_button" android:text="Domestic"
+        android:layout_marginLeft="20dp"/>
+
+</LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="#FFFF7700"
-        android:text="Next"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        android:layout_height="wrap_content" android:layout_width="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aws_view"
-        app:layout_constraintVertical_bias="0.24" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/next" android:textStyle="bold" android:textSize="20dp"
+        android:textColor="@color/white" android:text="Next"
+        android:backgroundTint="#008000" android:layout_marginBottom="24dp"
+        android:layout_marginEnd="32dp" android:layout_marginStart="32dp"
+        android:layout_gravity="center"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

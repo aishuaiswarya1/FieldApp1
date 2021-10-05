@@ -33,12 +33,9 @@ binding.skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createengineer();
-
             }
         });
-
     }
-
     private void createengineer() {
         String name = binding.e1.getEditText().getText().toString().trim();
         String emp_id = binding.e2.getEditText().getText().toString().trim();

@@ -4,19 +4,13 @@ public class Customer {
 
     String  cust_id,name,phone,housename,street,city, lmark,pincode, emailid,rep_phone, repname, state, district;
 
-    public Customer(String custId, String name, String phone, String housename, String street, String city, String lmark, String pincode, String emailid, String rep_phone, String repname, String state, String cust_id) {
+    public Customer( ) {
+
+    }
+
+    public Customer(String cust_id, String name, String phone, String housename, String street, String city, String lmark,
+                    String pincode, String emailid, String rep_phone, String repname, String state, String district) {
         this.cust_id = cust_id;
-    }
-
-    public String getCust_id() {
-        return cust_id;
-    }
-
-    public void setCust_id(String cust_id) {
-        this.cust_id = cust_id;
-    }
-
-    public Customer(String name, String phone, String housename, String street, String city, String lmark, String pincode, String emailid, String rep_phone, String repname, String state, String district) {
         this.name = name;
         this.phone = phone;
         this.housename = housename;
@@ -30,6 +24,15 @@ public class Customer {
         this.state = state;
         this.district = district;
     }
+
+    public String getCust_id() {
+        return cust_id;
+    }
+
+    public void setCust_id(String cust_id) {
+        this.cust_id = cust_id;
+    }
+
 
     public String getState() {
         return state;

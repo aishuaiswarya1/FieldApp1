@@ -18,11 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FieldAware">
         <activity android:name=".Product_Details">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Home" />
         <activity android:name=".DateTime" />
@@ -34,7 +30,14 @@
 
         </activity>
         <activity android:name=".Registration" />
-        <activity android:name=".Introductory"></activity>
+        <activity android:name=".Introductory">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".MainActivity" />
 
         <provider

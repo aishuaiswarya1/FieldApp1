@@ -57,7 +57,7 @@ public class DateTime extends AppCompatActivity {
     public static String deviceId;
     DatabaseReference databaseReference;
     //    FirebaseDatabase firebaseDatabase;
-    FusedLocationProviderClient fusedLocationProviderClient;
+
     private static final String TAG = "DateTime";
     FusedLocationProviderClient mFusedLocationClient;
 

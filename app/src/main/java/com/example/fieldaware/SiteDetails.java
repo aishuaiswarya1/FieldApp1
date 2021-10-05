@@ -8,12 +8,17 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Looper;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +29,15 @@ import android.widget.ViewSwitcher;
 
 import com.example.fieldaware.databinding.ActivityMainBinding;
 import com.example.fieldaware.databinding.ActivitySiteDetailsBinding;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +48,8 @@ public class SiteDetails extends AppCompatActivity {
 
     int PICK_IMAGE_MULTIPLE = 1;
     String imageEncoded;
-
+    FusedLocationProviderClient mFusedLocationClient;
+    int PERMISSION_ID = 44;
     ArrayList<Uri> mArrayUri;
     int position = 0;
     List<String> imagesEncodedList;
@@ -42,6 +57,8 @@ public class SiteDetails extends AppCompatActivity {
     ActivitySiteDetailsBinding binding;
     Spinner stateSpinner, districtSpinner;
     private ArrayAdapter<CharSequence> stateAdapter, districtAdapter;
+    DatabaseReference databaseReference;
+    FirebaseDatabase firebaseDatabase;
 
 
     @Override
@@ -50,10 +67,20 @@ public class SiteDetails extends AppCompatActivity {
         binding = ActivitySiteDetailsBinding.inflate(getLayoutInflater(), null, false);
         setContentView(binding.getRoot());
         mArrayUri = new ArrayList<Uri>();
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        // method to get the location
+        getLastLocation();
         stateSpinner = findViewById(R.id.spinner_indian_states);
         stateAdapter = ArrayAdapter.createFromResource(this,
                 R.array.array_indian_states, R.layout.spinner_layout);
+        binding.save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               createsitedetails();
 
+            }
+        });
         // Specify the layout to use when the list of choices appear
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(stateAdapter);
@@ -286,8 +313,162 @@ public class SiteDetails extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_MULTIPLE);
             }
         });
+
+
     }
 
+    private void createsitedetails() {
+        String site_name=binding.sitename.getText().toString().trim();
+        String landmark=binding.landmark.getText().toString().trim();
+        String pincode=binding.pincode.getText().toString().trim();
+        String state = binding.spinnerIndianStates.getSelectedItem().toString();
+        String district = binding.spinnerIndianDistricts.getSelectedItem().toString();
+        String latitude=binding.latTextView.getText().toString().trim();
+        String longitude=binding.lonTextView.getText().toString().trim();
+        if (landmark.isEmpty()) {
+            binding.landmark.setError("Field can not be empty");
+        }
+        if (pincode.isEmpty()) {
+            binding.pincode.setError("Field can not be empty");
+        }
+        if (site_name.isEmpty()){
+            binding.sitename.setError("Field can not be empty");
+        }
+        if (!site_name.isEmpty() &&!landmark.isEmpty() && !pincode.isEmpty()) {
+
+                Site_info site_info = new Site_info(site_name, landmark, district, state,
+                        longitude, latitude, pincode);
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            databaseReference = firebaseDatabase.getReference("cp_serial_no");
+            databaseReference.child(DateTime.deviceId).child(DateTime.date).child(site_name).setValue(site_info).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    binding.pincode.setText("");binding.landmark.setText("");
+                    binding.sitename.setText("");
+                    binding.lonTextView.setText("");
+                    binding.latTextView.setText("");
+                    binding.spinnerIndianStates.setSelection(0);
+                    binding.spinnerIndianDistricts.setSelection(0);
+                    startActivity(new Intent(getApplicationContext(),Product_Details.class));
+                }
+            });
+        }
+        }
+
+
+    private void getLastLocation() {
+        if (checkPermissions()) {
+
+            // check if location is enabled
+            if (isLocationEnabled()) {
+
+                // getting last
+                // location from
+                // FusedLocationClient
+                // object
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                mFusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Location> task) {
+                        Location location = task.getResult();
+                        if (location == null) {
+                            requestNewLocationData();
+                        } else {
+                            binding.latTextView.setText(location.getLatitude() + "");
+                            binding.lonTextView.setText(location.getLongitude() + "");
+                        }
+                    }
+                });
+            } else {
+                Toast.makeText(this, "Please turn on" + " your location...", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+            }
+        } else {
+            // if permissions aren't available,
+            // request for permissions
+            requestPermissions();
+        }
+    }
+
+    private LocationCallback mLocationCallback = new LocationCallback() {
+
+        @Override
+        public void onLocationResult(LocationResult locationResult) {
+            Location mLastLocation = locationResult.getLastLocation();
+            binding.latTextView.setText("Latitude: " + mLastLocation.getLatitude() + "");
+            binding.lonTextView.setText("Longitude: " + mLastLocation.getLongitude() + "");
+        }
+    };
+
+    private void requestNewLocationData() {
+        LocationRequest mLocationRequest = new LocationRequest();
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest.setInterval(5);
+        mLocationRequest.setFastestInterval(0);
+        mLocationRequest.setNumUpdates(1);
+
+        // setting LocationRequest
+        // on FusedLocationClient
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+
+        mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
+    }
+
+    private boolean checkPermissions() {
+        return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+
+        // If we want background location
+        // on Android 10.0 and higher,
+        // use:
+        // ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
+    }
+
+    // method to request for permissions
+    private void requestPermissions() {
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_ID);
+    }
+
+    // method to check
+    // if location is enabled
+    private boolean isLocationEnabled() {
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+    }
+
+    // If everything is alright then
+    @Override
+    public void
+    onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == PERMISSION_ID) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getLastLocation();
+            }
+        }
+    }
 
 
     @Override
@@ -317,6 +498,14 @@ public class SiteDetails extends AppCompatActivity {
         } else {
             // show this if no image is selected
             Toast.makeText(this, "You haven't picked Image", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (checkPermissions()) {
+            getLastLocation();
         }
     }
 }

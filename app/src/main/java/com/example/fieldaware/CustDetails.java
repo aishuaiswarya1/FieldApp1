@@ -225,6 +225,12 @@ public class CustDetails extends AppCompatActivity {
 
             }
         });
+        binding.skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Product_Details.class));
+            }
+        });
         binding.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

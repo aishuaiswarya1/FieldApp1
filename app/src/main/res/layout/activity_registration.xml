@@ -9,8 +9,6 @@
     android:padding="20dp"
     tools:context=".Registration">
 
-
-
     <TextView
         android:id="@+id/regtext"
         android:layout_width="wrap_content"
@@ -18,7 +16,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="REGISTER ME!"
-        android:textColor="@color/black"
+        android:textColor="#008000"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -91,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#FFFF7700"
+        android:backgroundTint="#008000"
         android:text="REGISTER"
         android:textColor="@color/white"
         android:textSize="20dp"
