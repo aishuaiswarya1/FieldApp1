@@ -133,7 +133,7 @@ public class Product_Details extends AppCompatActivity {
                 String indoor = binding.indoorButton.getText().toString().trim();
                 String ambient = binding.ambientButton.getText().toString().trim();
                 String aws = binding.awsButton.getText().toString().trim();
-                String flood = binding.farmButton.getText().toString().trim();
+                String flood = binding.floodtButton.getText().toString().trim();
                 String residential = binding.residentialButton.getText().toString().trim();
                 String farm = binding.farmButton.getText().toString().trim();
                 String domestic = binding.domesticButton.getText().toString().trim();
@@ -146,7 +146,7 @@ public class Product_Details extends AppCompatActivity {
                     databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("brand").setValue(envitus).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull @NotNull Task<Void> task) {
-                            if(task.isSuccessful()) {
+                            if (task.isSuccessful()) {
                                 //Toast.makeText(Product_Details.this, "Data stored", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -191,41 +191,44 @@ public class Product_Details extends AppCompatActivity {
                         });
                 }
 
-                if (binding.ambientButton.isChecked()) {
+            switch (binding.airView.getCheckedRadioButtonId()){
+                case R.id.ambient_button:
                     databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(ambient).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
                         }
                     });
+
+                case R.id.indoor_button:
+
+                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(indoor).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                        }
+                    });
+
                 }
-                        if (binding.indoorButton.isChecked()) {
 
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(indoor).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
+         if (binding.awsButton.isChecked()) {
+             databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(aws).addOnCompleteListener(new OnCompleteListener<Void>() {
+                 @Override
+                 public void onComplete(@NonNull Task<Void> task) {
 
-                            }
-                        });
+                 }
+             });
+         }
+         if (binding.floodtButton.isChecked()){
+
+                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(flood).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
 
                         }
-                        switch (binding.awsradiogrp.getCheckedRadioButtonId()) {
-                            case R.id.aws_button:
-                                databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(aws).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
+                    });
+                }
 
-                                    }
-                                });
-                            case R.id.floodt_button:
-
-                                databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(flood).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-
-                                    }
-                                });
-                        }
                        switch (binding.awsgrp.getCheckedRadioButtonId()){
                            case R.id.agrbutton:
                         databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub2").setValue(agriculture).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -252,7 +255,7 @@ public class Product_Details extends AppCompatActivity {
                             }
                         });
                         }
-                        if (binding.farmButton.isChecked()) {
+                     if (binding.farmButton.isChecked()){
                         databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(farm).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
