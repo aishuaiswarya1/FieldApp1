@@ -158,7 +158,7 @@ public class Product_Details extends AppCompatActivity {
                 switch (binding.Familygrp.getCheckedRadioButtonId()) {
                     case R.id.air_button:
 
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").setValue(air).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("name").setValue(air).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
@@ -166,7 +166,7 @@ public class Product_Details extends AppCompatActivity {
                         });
                         break;
                     case R.id.habitat_button:
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").setValue(habitat).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("name").setValue(habitat).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                             }
@@ -174,7 +174,7 @@ public class Product_Details extends AppCompatActivity {
                         break;
                     case R.id.soil_button:
 
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").setValue(soil).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("name").setValue(soil).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
@@ -183,7 +183,7 @@ public class Product_Details extends AppCompatActivity {
 
                         break;
                     case R.id.water_button:
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").setValue(water).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("name").setValue(water).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
@@ -193,7 +193,7 @@ public class Product_Details extends AppCompatActivity {
 
             switch (binding.airView.getCheckedRadioButtonId()){
                 case R.id.ambient_button:
-                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(ambient).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(ambient).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
@@ -202,7 +202,7 @@ public class Product_Details extends AppCompatActivity {
 
                 case R.id.indoor_button:
 
-                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(indoor).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(indoor).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
@@ -212,7 +212,7 @@ public class Product_Details extends AppCompatActivity {
                 }
 
          if (binding.awsButton.isChecked()) {
-             databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(aws).addOnCompleteListener(new OnCompleteListener<Void>() {
+             databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(aws).addOnCompleteListener(new OnCompleteListener<Void>() {
                  @Override
                  public void onComplete(@NonNull Task<Void> task) {
 
@@ -221,7 +221,7 @@ public class Product_Details extends AppCompatActivity {
          }
          if (binding.floodtButton.isChecked()){
 
-                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(flood).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(flood).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
@@ -231,14 +231,14 @@ public class Product_Details extends AppCompatActivity {
 
                        switch (binding.awsgrp.getCheckedRadioButtonId()){
                            case R.id.agrbutton:
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub2").setValue(agriculture).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub2").setValue(agriculture).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
                             }
                         });
                            case R.id.research_button:
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub2").setValue(research).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub2").setValue(research).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
@@ -248,7 +248,7 @@ public class Product_Details extends AppCompatActivity {
 
 
                         if (binding.residentialButton.isChecked()) {
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub2").setValue(residential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub2").setValue(residential).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
@@ -256,7 +256,7 @@ public class Product_Details extends AppCompatActivity {
                         });
                         }
                      if (binding.farmButton.isChecked()){
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(farm).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(farm).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
@@ -264,7 +264,7 @@ public class Product_Details extends AppCompatActivity {
                         });
                         }
                         if (binding.domesticButton.isChecked()) {
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family_sub1").setValue(domestic).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(domestic).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 
