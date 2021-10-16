@@ -1,48 +1,40 @@
 package com.example.fieldaware;
 
 public class Product_info {
-    String brand,family,second_famiy,third_family;
+    String family_name, sub_family1, sub_family2;
 
     public Product_info( ) {
 
     }
 
-    public Product_info(String brand, String family, String second_famiy, String third_family) {
-        this.brand = brand;
-        this.family = family;
-        this.second_famiy = second_famiy;
-        this.third_family = third_family;
+    public Product_info( String family_name, String sub_family1, String sub_family2) {
+        this.family_name = family_name;
+        this.sub_family1 = sub_family1;
+        this.sub_family2 = sub_family2;
     }
 
-    public String getBrand() {
-        return brand;
+
+    public String getFamily_name() {
+        return family_name;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setFamily_name(String family_name) {
+        this.family_name = family_name;
     }
 
-    public String getFamily() {
-        return family;
+    public String getSub_family1() {
+        return sub_family1;
     }
 
-    public void setFamily(String family) {
-        this.family = family;
+    public void setSub_family1(String sub_family1) {
+        this.sub_family1 = sub_family1;
     }
 
-    public String getSecond_famiy() {
-        return second_famiy;
+    public String getSub_family2() {
+        return sub_family2;
     }
 
-    public void setSecond_famiy(String second_famiy) {
-        this.second_famiy = second_famiy;
-    }
-
-    public String getThird_family() {
-        return third_family;
-    }
-
-    public void setThird_family(String third_family) {
-        this.third_family = third_family;
+    public void setSub_family2(String sub_family2) {
+        this.sub_family2 = sub_family2;
     }
 }

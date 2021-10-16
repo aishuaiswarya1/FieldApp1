@@ -3,27 +3,27 @@ package com.example.fieldaware;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.fieldaware.databinding.ActivityCustdetailsBinding;
+import com.example.fieldaware.databinding.ActivityRegistrationBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class CustDetails extends AppCompatActivity {
+public class custdetails extends AppCompatActivity {
     ActivityCustdetailsBinding binding;
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
     String selectedDistrict, selectedState;
     Spinner stateSpinner, districtSpinner;
     private ArrayAdapter<CharSequence> stateAdapter, districtAdapter;
-    private static final String TAG = "CustDetails";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -225,12 +225,6 @@ public class CustDetails extends AppCompatActivity {
 
             }
         });
-        binding.skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Product_Details.class));
-            }
-        });
         binding.b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,13 +235,11 @@ public class CustDetails extends AppCompatActivity {
     }
 
     private void createcustomer() {
-        String cust_id=binding.custId.getEditText().getText().toString().trim();
         String name = binding.fname.getEditText().getText().toString().trim();
         String phone = binding.phone.getEditText().getText().toString().trim();
         String emailid = binding.repEmail.getEditText().getText().toString().trim();
         String repname = binding.repName.getEditText().getText().toString().trim();
-        String state = binding.spinnerIndianStates.getSelectedItem().toString();
-        String district = binding.spinnerIndianDistricts.getSelectedItem().toString();
+
         String rep_phone = binding.repPhonre.getEditText().getText().toString().trim();
         String city = binding.city.getEditText().getText().toString().trim();
         String housename = binding.houseno.getEditText().getText().toString().trim();
@@ -255,9 +247,6 @@ public class CustDetails extends AppCompatActivity {
         String lmark = binding.landmark.getEditText().getText().toString().trim();
         String pincode = binding.pincode.getEditText().getText().toString().trim();
 
-        if (cust_id.isEmpty()) {
-            binding.custId.setError("Field can not be empty");
-        }
         if (emailid.isEmpty()) {
             binding.repEmail.setError("Field can not be empty");
         }
@@ -288,18 +277,16 @@ public class CustDetails extends AppCompatActivity {
         if (rep_phone.isEmpty()) {
             binding.repPhonre.setError("Field can not be empty");
         }
-        if (!cust_id.isEmpty() &&!name.isEmpty() && !phone.isEmpty() && !rep_phone.isEmpty() && !repname.isEmpty() &&
+        if (!name.isEmpty() && !phone.isEmpty() && !rep_phone.isEmpty() && !repname.isEmpty() &&
                 !emailid.isEmpty() && !street.isEmpty() && !housename.isEmpty() && !city.isEmpty() && !lmark.isEmpty() &&
                 !pincode.isEmpty()) {
-            Customer customer = new Customer( cust_id,name, phone, housename, street, city, lmark, pincode,
-                    emailid,rep_phone,repname, state, district);
+            customer customer = new customer(name, phone, housename, street, city, lmark, pincode, emailid, repname, rep_phone);
             firebaseDatabase = FirebaseDatabase.getInstance();
-            databaseReference = firebaseDatabase.getReference("cp_serial_no");
-            databaseReference.child(DateTime.deviceId).child(DateTime.date).child(cust_id).setValue(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
+            databaseReference = firebaseDatabase.getReference("Date");
+            databaseReference.child(name).setValue(customer).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     binding.fname.getEditText().setText("");
-                    binding.custId.getEditText().setText("");
                     binding.phone.getEditText().setText("");
                     binding.houseno.getEditText().setText("");
                     binding.streetname.getEditText().setText("");
@@ -309,10 +296,6 @@ public class CustDetails extends AppCompatActivity {
                     binding.repEmail.getEditText().setText("");
                     binding.pincode.getEditText().setText("");
                     binding.landmark.getEditText().setText("");
-                    binding.spinnerIndianStates.setSelection(0);
-                    binding.spinnerIndianDistricts.setSelection(0);
-                    startActivity(new Intent(getApplicationContext(),SiteDetails.class));
-
                 }
             });
 

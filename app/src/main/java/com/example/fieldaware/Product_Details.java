@@ -3,6 +3,7 @@ package com.example.fieldaware;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -24,6 +25,8 @@ public class Product_Details extends AppCompatActivity {
     Product_info product_info;
     int i = 0;
     ActivityProductDetailsBinding binding;
+    private String family_name, brand_name, sub_family1, sub_family2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class Product_Details extends AppCompatActivity {
                         binding.airView.setVisibility(View.GONE);
                         binding.awsView.setVisibility(View.GONE);
                         binding.floodView.setVisibility(View.GONE);
-                     binding.awsradiogrp.setVisibility(View.GONE);
+                        binding.awsradiogrp.setVisibility(View.GONE);
                         break;
 
                 }
@@ -108,172 +111,106 @@ public class Product_Details extends AppCompatActivity {
             }
         });
         databaseReference = FirebaseDatabase.getInstance().getReference("cp_serial_no");
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.exists()) {
-//                    i = (int) snapshot.getChildrenCount();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
         binding.next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String envitus = binding.envitusRadiobutton.getText().toString().trim();
-                String tims = binding.timsRadiobutton.getText().toString().trim();
-                String air = binding.airButton.getText().toString().trim();
-                String habitat = binding.habitatButton.getText().toString().trim();
-                String water = binding.waterButton.getText().toString().trim();
-                String soil = binding.soilButton.getText().toString().trim();
-                String indoor = binding.indoorButton.getText().toString().trim();
-                String ambient = binding.ambientButton.getText().toString().trim();
-                String aws = binding.awsButton.getText().toString().trim();
-                String flood = binding.floodtButton.getText().toString().trim();
-                String residential = binding.residentialButton.getText().toString().trim();
-                String farm = binding.farmButton.getText().toString().trim();
-                String domestic = binding.domesticButton.getText().toString().trim();
-                String agriculture = binding.agrbutton.getText().toString().trim();
-                String research = binding.researchButton.getText().toString().trim();
-                if (binding.envitusRadiobutton.isChecked()) {
-//                    product_info.setBrand(envitus);
-//                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child(envitus).setValue(product_info);
 
-                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("brand").setValue(envitus).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull @NotNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                //Toast.makeText(Product_Details.this, "Data stored", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                } else {
-                    product_info.setBrand(tims);
-                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("brand").setValue(tims);
-                }
-                switch (binding.Familygrp.getCheckedRadioButtonId()) {
-                    case R.id.air_button:
+                checkAssignedCategory();
 
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("name").setValue(air).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
+                product_info = new Product_info(family_name, sub_family1, sub_family2);
 
-                            }
-                        });
-                        break;
-                    case R.id.habitat_button:
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("name").setValue(habitat).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                            }
-                        });
-                        break;
-                    case R.id.soil_button:
+                databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").
+                        child("brand").setValue(brand_name).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull @NotNull Task<Void> task) {
+                        databaseReference.child(DateTime.deviceId).child(DateTime.date)
+                                .child("product").child("family").setValue(product_info)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                        if(task.isSuccessful()) {
 
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("name").setValue(soil).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-
-                        break;
-                    case R.id.water_button:
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("name").setValue(water).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-                }
-
-            switch (binding.airView.getCheckedRadioButtonId()){
-                case R.id.ambient_button:
-                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(ambient).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-
-                        }
-                    });
-
-                case R.id.indoor_button:
-
-                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(indoor).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-
-                        }
-                    });
-
-                }
-
-         if (binding.awsButton.isChecked()) {
-             databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(aws).addOnCompleteListener(new OnCompleteListener<Void>() {
-                 @Override
-                 public void onComplete(@NonNull Task<Void> task) {
-
-                 }
-             });
-         }
-         if (binding.floodtButton.isChecked()){
-
-                    databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(flood).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-
-                        }
-                    });
-                }
-
-                       switch (binding.awsgrp.getCheckedRadioButtonId()){
-                           case R.id.agrbutton:
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub2").setValue(agriculture).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-                           case R.id.research_button:
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub2").setValue(research).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-                        }
-
-
-                        if (binding.residentialButton.isChecked()) {
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub2").setValue(residential).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-                        }
-                     if (binding.farmButton.isChecked()){
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(farm).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-                        }
-                        if (binding.domesticButton.isChecked()) {
-                        databaseReference.child(DateTime.deviceId).child(DateTime.date).child("product").child("family").child("family_sub1").setValue(domestic).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-
-                            }
-                        });
-                }
+                                        }
+                                    }
+                                });
+                    }
+                });
+                startActivity(new Intent(getApplicationContext(),Home.class));
 
             }
 
         });
+    }
+
+    public void checkAssignedCategory() {
+
+        String envitus = binding.envitusRadiobutton.getText().toString().trim();
+        String tims = binding.timsRadiobutton.getText().toString().trim();
+        String air = binding.airButton.getText().toString().trim();
+        String habitat = binding.habitatButton.getText().toString().trim();
+        String water = binding.waterButton.getText().toString().trim();
+        String soil = binding.soilButton.getText().toString().trim();
+        String indoor = binding.indoorButton.getText().toString().trim();
+        String ambient = binding.ambientButton.getText().toString().trim();
+        String aws = binding.awsButton.getText().toString().trim();
+        String flood = binding.floodtButton.getText().toString().trim();
+        String residential = binding.residentialButton.getText().toString().trim();
+        String farm = binding.farmButton.getText().toString().trim();
+        String domestic = binding.domesticButton.getText().toString().trim();
+        String agriculture = binding.agrbutton.getText().toString().trim();
+        String research = binding.researchButton.getText().toString().trim();
+
+        if (binding.envitusRadiobutton.isChecked())
+            brand_name = envitus;
+        else
+            brand_name = tims;
+
+        if (binding.LinearLayout.getVisibility() == View.VISIBLE) {
+            switch (binding.Familygrp.getCheckedRadioButtonId()) {
+                case R.id.air_button:
+                    family_name = air;
+                    break;
+                case R.id.water_button:
+                    family_name = water;
+                    break;
+                case R.id.habitat_button:
+                    family_name = habitat;
+                    break;
+                case R.id.soil_button:
+                    family_name = soil;
+                    break;
+            }
+        }
+
+        if (binding.airView.getVisibility() == View.VISIBLE) {
+            if (binding.ambientButton.isChecked()) {
+                sub_family1 = ambient;
+                sub_family2 = null;
+            }
+            else {
+                sub_family1 = indoor;
+                sub_family2 = null;
+            }
+        } else if (binding.habitatView.getVisibility() == View.VISIBLE) {
+            if (binding.awsButton.isChecked()) {
+                sub_family1 = aws;
+                if(binding.agrbutton.isChecked()) {
+                    sub_family2 = agriculture;
+                } else
+                    sub_family2 = research;
+            }
+            else {
+                sub_family1 = flood;
+                if (binding.residentialButton.isChecked())
+                    sub_family2 = residential;
+            }
+        } else if(binding.soilView.getVisibility() == View.VISIBLE) {
+            sub_family1 = farm;
+            sub_family2 = null;
+        }
+        else {
+            sub_family1 = domestic;
+            sub_family2 = null;
+        }
     }
 }

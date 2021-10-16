@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.airbnb.lottie.LottieAnimationView;
 
 
-public class Introductory extends AppCompatActivity {
+public class introductory extends AppCompatActivity {
 ImageView icon,splash;
 LottieAnimationView lottieAnimationView;
 TextView text;
@@ -30,7 +30,7 @@ TextView text;
             @Override
             public void run() {
 
-                startActivity(new Intent(Introductory.this,MainActivity.class));
+                startActivity(new Intent(introductory.this,MainActivity.class));
                 finish();
             }
         },1000);

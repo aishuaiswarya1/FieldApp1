@@ -1,16 +1,15 @@
 package com.example.fieldaware;
 
-public class Customer {
+public class customer {
 
-    String  cust_id,name,phone,housename,street,city, lmark,pincode, emailid,rep_phone, repname, state, district;
+    String name,phone,housename,street,city, lmark,pincode, emailid,rep_phone, repname;
 
-    public Customer( ) {
+    public customer() {
 
     }
 
-    public Customer(String cust_id, String name, String phone, String housename, String street, String city, String lmark,
-                    String pincode, String emailid, String rep_phone, String repname, String state, String district) {
-        this.cust_id = cust_id;
+    public customer(String name, String phone, String housename, String street,
+                    String city, String lmark, String pincode, String emailid, String rep_phone, String repname) {
         this.name = name;
         this.phone = phone;
         this.housename = housename;
@@ -21,33 +20,6 @@ public class Customer {
         this.emailid = emailid;
         this.rep_phone = rep_phone;
         this.repname = repname;
-        this.state = state;
-        this.district = district;
-    }
-
-    public String getCust_id() {
-        return cust_id;
-    }
-
-    public void setCust_id(String cust_id) {
-        this.cust_id = cust_id;
-    }
-
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
     }
 
     public String getName() {

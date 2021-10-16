@@ -1,13 +1,13 @@
 package com.example.fieldaware;
 
-public class AddEng {
+public class addeng {
     String email_id,name,emp_id;
 
-    public AddEng() {
+    public addeng() {
 
     }
 
-    public AddEng(String email_id, String name, String emp_id) {
+    public addeng(String email_id, String name, String emp_id) {
         this.email_id = email_id;
         this.name = name;
         this.emp_id = emp_id;

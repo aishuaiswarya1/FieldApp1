@@ -69,10 +69,14 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         app:layout_constraintVertical_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent" android:id="@+id/radioGroup" app:layout_constraintTop_toBottomOf="@+id/bestbrand"
+        app:layout_constraintStart_toStartOf="parent" android:id="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/bestbrand"
         android:orientation="horizontal">
 
-        <com.google.android.material.radiobutton.MaterialRadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/envitus_radiobutton" android:text="Envitus" android:layout_marginLeft="20dp"/>
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:layout_height="wrap_content" android:layout_width="wrap_content"
+            android:id="@+id/envitus_radiobutton" android:text="Envitus"
+            android:layout_marginLeft="20dp"/>
 
         <com.google.android.material.radiobutton.MaterialRadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tims_radiobutton" android:text="Tims" android:layout_marginLeft="60dp"/>
 

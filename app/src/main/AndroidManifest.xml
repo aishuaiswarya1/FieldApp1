@@ -3,11 +3,6 @@
     package="com.example.fieldaware">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,20 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FieldAware">
-        <activity android:name=".Product_Details">
+        <activity android:name=".datetime">
+        </activity>
+        <activity android:name=".custdetails">
 
         </activity>
-        <activity android:name=".Home" />
-        <activity android:name=".DateTime" />
-        <activity android:name=".CustDetails" />
         <activity android:name=".Engineer" />
-        <activity android:name=".EditProfile" />
-        <activity android:name=".Profile" />
-        <activity android:name=".SiteDetails">
-
-        </activity>
+        <activity android:name=".editprofile" />
+        <activity android:name=".profile" />
         <activity android:name=".Registration" />
-        <activity android:name=".Introductory">
+        <activity android:name=".introductory">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,16 +30,6 @@
 
         </activity>
         <activity android:name=".MainActivity" />
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.android.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
     </application>
 
 </manifest>

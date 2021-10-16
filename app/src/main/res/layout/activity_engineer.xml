@@ -1,37 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/scrollview"
-    android:fillViewport="true">
-<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Engineer"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/skip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:gravity="right"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:text="Skip"
-        android:layout_marginTop="20dp"
-        android:textColor="#008000"
-
-        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginRight="20dp"
         android:id="@+id/emp_name"
         android:hint="name">
@@ -45,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="20dp"
         android:id="@+id/emp_id"
 
@@ -66,7 +47,7 @@
         android:textStyle="bold"
        android:layout_gravity="center"
         android:textSize="30dp"
-        android:textColor="@color/black"/>
+        android:textColor="#FFFFC107"/>
 
     <com.google.android.material.textfield.TextInputLayout
 android:id="@+id/e1"
@@ -78,7 +59,7 @@ android:layout_marginBottom="5dp"
     android:layout_marginRight="20dp"
 android:hint="Name"
 
-android:textColorHint="#309730"
+android:textColorHint="#FFFF9800"
 app:layout_constraintBottom_toBottomOf="@id/e2"
 app:layout_constraintEnd_toEndOf="@id/icon1"
 app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +78,7 @@ android:id="@+id/e2"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:hint="EmployeeID"
-android:textColorHint="#309730"
+android:textColorHint="#FFFF9800"
 android:layout_marginBottom="20dp"
 
 app:layout_constraintBottom_toBottomOf="parent"
@@ -124,7 +105,7 @@ app:layout_constraintVertical_bias="1">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:textColorHint="#309730"
+        android:textColorHint="#FFFF9800"
         android:layout_marginBottom="20dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,7 +122,7 @@ app:layout_constraintVertical_bias="1">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-android:inputType="textEmailAddress"
+
             android:drawableEnd="@drawable/email"
             android:drawableRight="@drawable/email"
 
@@ -154,14 +135,14 @@ android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:backgroundTint="#008000"
-     android:text="Next"
+        android:backgroundTint="#FFFF7700"
+        android:text="ADD"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"/>
+
 
 
 </LinearLayout>
-</ScrollView>

@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/scrollview"
-    android:fillViewport="true">
-<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -20,12 +14,12 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/icon1"
-        android:layout_width="166dp"
-        android:layout_height="162dp"
+        android:layout_width="152dp"
+        android:layout_height="125dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/envitus"
+        android:src="@drawable/icon"
+        android:layout_marginTop="20dp"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +35,7 @@
         android:layout_height="wrap_content"
         android:hint="Email"
         android:layout_marginBottom="5dp"
-        android:textColorHint="#309730"
+        android:textColorHint="#FFFF9800"
 
         app:layout_constraintBottom_toBottomOf="@id/e2"
         android:layout_marginTop="30dp"
@@ -52,9 +46,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-android:inputType="textEmailAddress"
+
             android:drawableEnd="@drawable/email"
-            android:drawableRight="@drawable/email" />
+            android:drawableRight="@drawable/email"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +56,7 @@ android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:textColorHint="#309730"
+        android:textColorHint="#FFFF9800"
         android:layout_marginBottom="20dp"
         app:endIconDrawable="@drawable/password"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +81,7 @@ android:inputType="textEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:backgroundTint="#008000"
+        android:backgroundTint="#FFFF7700"
         android:text="LOGIN"
         android:textColor="@color/white"
         android:textSize="20dp"
@@ -107,11 +101,10 @@ android:inputType="textEmailAddress"
         android:layout_gravity="center"
         android:text=" Create an account "
 
-        android:textColor="#309730"
+        android:textColor="#FFFF7700"
         android:textStyle="bold"
         />
 
 
 </LinearLayout>
-</ScrollView>
 

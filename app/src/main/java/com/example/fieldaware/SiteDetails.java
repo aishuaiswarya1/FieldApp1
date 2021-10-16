@@ -340,7 +340,7 @@ public class SiteDetails extends AppCompatActivity {
                         longitude, latitude, pincode);
             firebaseDatabase = FirebaseDatabase.getInstance();
             databaseReference = firebaseDatabase.getReference("cp_serial_no");
-            databaseReference.child(DateTime.deviceId).child(DateTime.date).child(site_name).setValue(site_info).addOnCompleteListener(new OnCompleteListener<Void>() {
+            databaseReference.child(DateTime.deviceId).child(DateTime.date).child("Site_details").child(site_name).setValue(site_info).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     binding.pincode.setText("");binding.landmark.setText("");

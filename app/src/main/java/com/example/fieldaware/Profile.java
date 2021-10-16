@@ -8,9 +8,10 @@ import android.view.View;
 
 import com.example.fieldaware.databinding.ActivityProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Profile extends AppCompatActivity {
+public class profile extends AppCompatActivity {
     ActivityProfileBinding binding;
     FirebaseDatabase firebasedatabase;
     FirebaseAuth firebaseAuth;
@@ -28,7 +29,7 @@ public class Profile extends AppCompatActivity {
         binding.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Profile.this, EditProfile.class);
+                Intent intent=new Intent(profile.this,editprofile.class);
                 startActivity(intent);
             }
         });
